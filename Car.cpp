@@ -25,6 +25,9 @@ public:
 	}
 	void increment_milage() {
 		milage++;
+		if(milage >= 1000000) {
+			milage -= 1000000;
+		}
 	}
 };
 
@@ -39,5 +42,10 @@ int main() {
 	std::cout << "Wheels = " << m.get_wheels() << '\n'
 		<< "Doors = " << m.get_doors() << '\n'
 		<< "Milage = " << m.get_milage() << '\n';
+	m.increment_milage();
+	for(int i = 0; i < 1500000; i++) {
+		m.increment_milage();
+	}
+	std::cout << "New milage = " << m.get_milage() << '\n';
 	return 0;
 }
