@@ -32,13 +32,21 @@ public:
 };
 
 class Motorcycle : public Vehicle {
+private:
+	int cc = 200;
 public:
 	Motorcycle() : Vehicle(2, 0, 15)
 	{}
+	Motorcycle(int c) : Vehicle(2, 0, 15), cc{c}
+	{}
+	int getCC() {
+		return cc;
+	}
 };
 
 int main() {
 	Motorcycle m;
+	Motorcycle m2(250);
 	std::cout << "Wheels = " << m.get_wheels() << '\n'
 		<< "Doors = " << m.get_doors() << '\n'
 		<< "Milage = " << m.get_milage() << '\n';
@@ -47,5 +55,7 @@ int main() {
 		m.increment_milage();
 	}
 	std::cout << "New milage = " << m.get_milage() << '\n';
+	std::cout << "Engine cubic centimeters = " << m.getCC() << '\n';
+	std::cout << "Engine cubic centimeters = " << m2.getCC() << '\n';
 	return 0;
 }
