@@ -33,6 +33,7 @@ int main() {
 	Bar b;
 	char *ptr = (char*)(&f);
 	int i = 0;
+	void *v;
 
 	f.print();
 	std::cout << "Iterating Foo\n";
@@ -49,6 +50,14 @@ int main() {
 		printf("%x  ", *(ptr + i));
 	}
 
+	std::cout << "\n\n";
+
+	v = (void*)&f;
+	for(i = 0; i < sizeof(Foo); i++) {
+		printf("%x  ", *((char*)v + i));
+	}
+
 	std::cout << '\n';
+
 	return 0;
 }
